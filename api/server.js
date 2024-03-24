@@ -1,18 +1,6 @@
 // See https://github.com/typicode/json-server#module
 const jsonServer = require('json-server')
-import cors from 'cors';
-const app = express();
 
-const options = [
-  cors({
-    origin: '*',
-    methods: '*',
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-  })
-];
-
-app.use(options);
 const server = jsonServer.create()
 
 // Uncomment to allow write operations
@@ -41,3 +29,6 @@ server.listen(3000, () => {
 
 // Export the Server API
 module.exports = server
+var cors = require('cors')
+
+app.use(cors()) // Use this after the variable declaration
